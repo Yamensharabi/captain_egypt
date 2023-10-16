@@ -11,31 +11,31 @@ class AppTheme {
       titleLarge: TextStyle(
         fontWeight: FontWeight.w700,
         fontSize: 22,
-        color: AppColors.mainColor,
+        color: AppColors.primary,
       ),
       titleMedium: TextStyle(
         fontSize: 18,
         fontWeight: FontWeight.w600,
-        color: AppColors.mainColor,
+        color: AppColors.primary,
       ),
       titleSmall: TextStyle(
         fontWeight: FontWeight.w400,
         fontSize: 14,
-        color: AppColors.mainColor,
+        color: AppColors.primary,
       ),
       bodyLarge: TextStyle(
-        color: AppColors.white,
+        color: AppColors.primary,
         fontWeight: FontWeight.w600,
         fontSize: 16,
         decoration: TextDecoration.none,
       ),
       bodyMedium: TextStyle(
         fontWeight: FontWeight.w400,
-        color: AppColors.mainColor,
+        color: AppColors.primary,
         fontSize: 14,
       ),
       bodySmall: TextStyle(
-        color: AppColors.mainColor,
+        color: AppColors.primary,
         fontWeight: FontWeight.w400,
         fontSize: 12,
       ),
