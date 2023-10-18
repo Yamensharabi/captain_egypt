@@ -13,21 +13,21 @@ class LoginScreen extends StatelessWidget {
           padding: EdgeInsets.all(20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
             textDirection: TextDirection.rtl, // Right-to-left alignment
             children: [
               SizedBox(height: 40),
               Center(
                 child: Image.asset("assets/images/logo.png"),
               ),
-              SizedBox(height: 40),
+              SizedBox(height: 80),
 
               // "تسجيل دخول" Text
               Text(
                 "تسجيل دخول",
                 style: AppTheme.themeArabic.textTheme.titleLarge,
               ),
-
+              SizedBox(height: 10),
               // "اسم المستخدم" Text
               Text(
                 "اسم المستخدم",
@@ -42,7 +42,7 @@ class LoginScreen extends StatelessWidget {
                 height: 50,
               ),
 
-              // "كلمة المرور" Text
+              SizedBox(height: 20),
               Text(
                 "كلمة المرور",
                 style: AppTheme.themeArabic.textTheme.titleSmall,
@@ -71,11 +71,12 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
               ),
+              SizedBox(height: 40),
 
               Container(
-                margin: EdgeInsets.only(top: 20),
                 width: 359,
                 height: 52,
+                margin: EdgeInsets.only(top: 20),
                 decoration: BoxDecoration(
                   color: AppColors.primary,
                   borderRadius: BorderRadius.circular(10),
@@ -113,38 +114,37 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ],
               ),
-
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: Container(
-                  width: 393,
-                  height: 102,
-                  decoration: BoxDecoration(
-                    color: AppColors.light_grey,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(60),
-                      topRight: Radius.circular(60),
-                    ),
-                  ),
-                  child: Center(
-                    child: Text(
-                      "تسجيل دخول كضيف",
-                      style: TextStyle(
-                        color: AppColors.lightBlue,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
             ],
+          ),
+        ),
+      ),
+      extendBody: true, // Allow the Scaffold body to extend beyond the app bar
+      extendBodyBehindAppBar: true, // Extend the body behind the app bar
+      bottomNavigationBar: Container(
+        width: 393,
+        height: 102,
+        decoration: BoxDecoration(
+          color: AppColors.light_grey,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(60),
+            topRight: Radius.circular(60),
+          ),
+        ),
+        child: Center(
+          child: Text(
+            "تسجيل دخول كضيف",
+            style: TextStyle(
+              color: AppColors.lightBlue,
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
       ),
     );
   }
 }
+
 
 class CustomTextFormField extends StatelessWidget {
   final String hintText;
