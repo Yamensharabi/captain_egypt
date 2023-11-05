@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import 'core/constants/app_routes.dart';
-import 'core/constants/app_themes.dart';
+import 'package:captain_egypt/core/localization/localiztion.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -12,15 +12,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-        designSize: const Size(390, 812),
-        minTextAdapt: true,
-        splitScreenMode: true,
-        builder: (BuildContext context, _) => GetMaterialApp(
-              debugShowCheckedModeBanner: false,
-              theme: AppTheme.themeArabic,
-              locale: const Locale('ar'),
-              getPages: AppRouters.routes,
-              initialRoute: AppRoutes.loginScreen,
-            ));
+      designSize: const Size(390, 812),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (BuildContext context, _) => GetMaterialApp(
+        debugShowCheckedModeBanner: false,
+        locale: Get.locale,
+        translations: AppLocalizations(), // Create this class to handle translations.
+        theme: Get.theme,
+        getPages: AppRouters.routes,
+        initialRoute: AppRoutes.splashScreen,
+      ),
+    );
   }
 }
