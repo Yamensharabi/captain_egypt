@@ -39,6 +39,7 @@ class AppTheme {
         fontWeight: FontWeight.w400,
         fontSize: 12,
       ),
+
     ),
   );
 }

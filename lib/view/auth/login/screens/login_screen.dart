@@ -1,8 +1,9 @@
-import 'package:captain_egypt/view/auth/login/screens/how%20to%20log%20in%20screen.dart';
+import 'package:captain_egypt/view/auth/login/screens/acount_setting.dart';
+import 'package:captain_egypt/view/auth/login/screens/myorder_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:captain_egypt/core/constants/app_colors.dart';
 import 'package:captain_egypt/core/constants/app_themes.dart';
-
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LoginScreen extends StatelessWidget {
   @override
@@ -54,6 +55,7 @@ class LoginScreen extends StatelessWidget {
                 borderColor: AppColors.lightBlue,
                 radius: 8,
                 height: 50,
+                suffixIcon: FontAwesomeIcons.eyeSlash,
               ),
 
               Align(
@@ -71,8 +73,6 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 40),
-
               Container(
                 width: 359,
                 height: 52,
@@ -85,7 +85,8 @@ class LoginScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Howtologin()),
+                     MaterialPageRoute(builder: (context) => Acount_setting()),
+                     /* MaterialPageRoute(builder: (context) => MyOrderScreen()),*/
                     );
                   },
                   child: Text(
@@ -147,38 +148,51 @@ class LoginScreen extends StatelessWidget {
 
 
 class CustomTextFormField extends StatelessWidget {
-  final String hintText;
+  final String? hintText; // Change the type to String?
   final Color borderColor;
   final double radius;
   final double height;
+  final IconData? suffixIcon;
 
   CustomTextFormField({
-  required this.hintText,
-  required this.borderColor,
-  required this.radius,
-  required this .height,
-});
+    this.hintText,
+    required this.borderColor,
+    required this.radius,
+    required this.height,
+    this.suffixIcon,
+  });
 
-@override
-Widget build(BuildContext context) {
-  return Container(
-    height: height,
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(radius),
-      border: Border.all(
-        color: borderColor,
-      ),
-    ),
-    child: Padding(
-      padding: EdgeInsets.symmetric(horizontal: 10),
-      child: TextFormField(
-        textAlign: TextAlign.right, // Right-align the input
-        decoration: InputDecoration(
-          hintText: hintText,
-          border: InputBorder.none,
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: height,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(radius),
+        border: Border.all(
+          color: borderColor,
         ),
       ),
-    ),
-  );
-}
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 10),
+        child: Row(
+          children: [
+            if (suffixIcon != null)
+              Icon(
+                suffixIcon,
+                color: Colors.grey,
+              ),
+            Expanded(
+              child: TextFormField(
+                textAlign: TextAlign.right,
+                decoration: InputDecoration(
+                  hintText: hintText,
+                  border: InputBorder.none,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }

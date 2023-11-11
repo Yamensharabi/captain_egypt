@@ -12,8 +12,6 @@ class AppColors {
   static Color orange = HexColor('FB8500');
   static Color lightBlue = HexColor('457B9D');
   static Color maron = HexColor('B9314F');
-
-
   static Color white = Colors.white;
 
 
